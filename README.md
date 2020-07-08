@@ -2,6 +2,6 @@
 
 ## Special points
 
-Handler <br>
-onItemClickListener       for ListView<br>
-ArrayAdapter      for array-to-ListView item
+Handler <br> <br>
+onItemClickListener       for ListView    <br> <br>
+ArrayAdapter      for array-to-ListView item    <br><br>
