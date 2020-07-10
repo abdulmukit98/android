@@ -1,0 +1,37 @@
+Create a menu resource file 
+
+add a menu item
+
+
+    <item android:id="@+id/action_create_order"
+        android:title="@string/create_order"
+        android:icon="@drawable/ic_add_white_24dp"
+        android:orderInCategory="1"
+        app:showAsAction="ifRoom"
+        />
+
+attach it to appBar
+
+    
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+
+make it react to click
+
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        switch (item.getItemId()){
+            case R.id.action_create_order:
+                Intent intent = new Intent(MainActivity.this, OrderActivity.class);
+                startActivity(intent);
+                break;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
