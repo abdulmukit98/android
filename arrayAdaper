@@ -1,0 +1,7 @@
+Get Data of ListView of Spinner from Java-Array or Database   rather than String-Array entry
+
+
+        ArrayAdapter<Drink> arrayAdapter = new ArrayAdapter<>(DrinkCatagory.this, android.R.layout.simple_list_item_1, Drink.drinks);
+
+
+        listView.setAdapter(arrayAdapter);
