@@ -9,3 +9,7 @@ ArrayAdapter      for array-to-ListView item    <br><br>
 
 Toolbar toolbar = findviewbyid(...) <br>
 setSupportActionBar(toolbar); <br>
+
+
+### share action provider <br>
+for share menu of appbar
