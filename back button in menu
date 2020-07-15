@@ -1,0 +1,9 @@
+select the activity parent activity in mainfest
+
+android:parentActivityName=".MainActivity"
+
+
+in activity onCreate method
+//implement up button  <-
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
