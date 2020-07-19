@@ -1,3 +1,5 @@
+        //include design library dependency first
+        
         String s = "Your Order has been updated";
         int duration = Snackbar.LENGTH_SHORT;
         Snackbar snackbar = Snackbar.make( findViewById(R.id.coordinator), s, duration );
