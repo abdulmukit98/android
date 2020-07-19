@@ -1,0 +1,35 @@
+ListView listView = findViewById(R.id.drink_lsit);
+
+
+        SQLiteOpenHelper starbuzzDatabaseHelper = new StarbuzzDatabaseHelper(DrinkActivity.this);
+        try {
+
+            SQLiteDatabase database = starbuzzDatabaseHelper.getReadableDatabase();
+            Cursor cursor = database.query("Drink", new String[]{"_id", "name"},
+                    null,null,null,null,null);
+
+            SimpleCursorAdapter simpleCursorAdapter = new SimpleCursorAdapter(
+                    DrinkActivity.this,
+                    android.R.layout.simple_list_item_1,
+                    cursor,
+                    new String[]{"name"},
+                    new int[]{android.R.id.text1},
+                    0
+            );
+
+            listView.setAdapter(simpleCursorAdapter);
+
+        }
+        catch (SQLiteException e){
+            Toast.makeText(DrinkActivity.this, "Database Unavailable", Toast.LENGTH_SHORT).show();
+        }
+
+        AdapterView.OnItemClickListener onItemClickListener = new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(DrinkActivity.this, DrinkDetailActivity.class);
+                intent.putExtra("position",(int) id);
+                startActivity(intent);
+            }
+        };
+        listView.setOnItemClickListener(onItemClickListener);
