@@ -1,0 +1,30 @@
+
+        int drinkId = (int) getIntent().getExtras().get("position");
+
+        SQLiteOpenHelper starbuzzDatabaseHelper = new StarbuzzDatabaseHelper(DrinkDetailActivity.this);
+
+        try {
+
+            SQLiteDatabase db = starbuzzDatabaseHelper.getReadableDatabase();
+
+            Cursor cursor = db.query("Drink",new String[]{"name","description","imageResourceId"},
+                    "_id = ?",new String[]{Integer.toString(drinkId)},
+                    null,null,null);
+
+
+
+            TextView name = findViewById(R.id.name);
+            TextView description = findViewById(R.id.description);
+            ImageView imageView = findViewById(R.id.image);
+
+            if(cursor.moveToFirst()){
+                name.setText(cursor.getString(0));
+                description.setText(cursor.getString(1));
+                imageView.setImageResource(cursor.getInt(2));
+            }
+            cursor.close();
+            db.close();
+        }
+        catch (SQLiteException  e){
+            Toast.makeText(this, "Database Unavailable", Toast.LENGTH_SHORT).show();
+        }
