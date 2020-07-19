@@ -1,0 +1,51 @@
+
+public class StarbuzzDatabaseHelper extends SQLiteOpenHelper {
+
+    private static String db_name = "starbuzz";
+    private static int db_version = 2;
+
+    public StarbuzzDatabaseHelper(Context context) {
+        super(context, null, null, db_version);
+    }
+
+    @Override
+    public void onCreate(SQLiteDatabase db) {
+        updateMyDatabase(db, 0, db_version);
+    }
+
+    public static void insertDrink(SQLiteDatabase database, String name, String description, int imageResourceId){
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("name", name);
+        contentValues.put("description", description);
+        contentValues.put("imageResourceId",imageResourceId);
+        database.insert("Drink", null, contentValues);
+    }
+
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        updateMyDatabase(db, oldVersion, newVersion);
+    }
+
+    private void updateMyDatabase(SQLiteDatabase db, int oldVersion, int newVersion){
+        //if oldVersion = 0
+        if(oldVersion < 1){
+            db.execSQL("create table Drink(_id integer primary key autoincrement," +
+                    "name text," +
+                    "description text," +
+                    "imageResourceId integer)");
+
+            insertDrink(db, "Lattle", "Espresso and steamed milk", R.drawable.latte);
+            insertDrink(db, "Cappuccino","Espresso, hot milk and steamed-milk foam", R.drawable.cappuccino);
+            insertDrink(db, "Coca", "Our best drip coffee", R.drawable.filter);
+            insertDrink(db, "Blaze", "Our best drip coffee mixed with Cappuccino", R.drawable.blaze);
+        }
+
+        //if oldVersion = 0  at first it create the older version. then update the block
+        // if oldVersion =1  database already exist. it then updated
+        if (oldVersion < 2 ){
+            db.execSQL("alter table Drink add column favorite numeric");
+
+        }
+
+    }
+}
