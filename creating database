@@ -5,7 +5,7 @@ public class StarbuzzDatabaseHelper extends SQLiteOpenHelper {
     private static int db_version = 2;
 
     public StarbuzzDatabaseHelper(Context context) {
-        super(context, null, null, db_version);
+        super(context, db_name, null, db_version);
     }
 
     @Override
