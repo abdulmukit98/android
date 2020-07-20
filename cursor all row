@@ -1,0 +1,9 @@
+ if (cursor != null) {
+    if (cursor.moveToFirst()) {
+      do {
+        fileName.add(cursor.getString(cursor.getColumnIndex(FileSQLiteAdapter.KEY_CONTENT1)));
+      } while (cursor.moveToNext());
+
+    }
+    cursor.close();
+  }
