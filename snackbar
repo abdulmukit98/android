@@ -1,5 +1,7 @@
         //include design library dependency first
         
+        // Create coordinator layout and give it  an idd . pass it to snackbar  findViewById()
+        
         String s = "Your Order has been updated";
         int duration = Snackbar.LENGTH_SHORT;
         Snackbar snackbar = Snackbar.make( findViewById(R.id.coordinator), s, duration );
