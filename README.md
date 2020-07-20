@@ -13,3 +13,7 @@ setSupportActionBar(toolbar); <br>
 
 ### share action provider <br>
 for share menu of appbar
+
+# database
+
+database.delete("Drink", "name = ?", new String[]{"mocca coffee"});   <br>
