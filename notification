@@ -33,5 +33,5 @@ using Android’s notification service.
 
         NotificationChannel channel = new NotificationChannel(channelId, "channel",NotificationManager.IMPORTANCE_DEFAULT);
         builder.setChannelId(channelId);
-
+        manager.createNotificationChannel(channel);
         manager.notify(notificationId, builder.build());
