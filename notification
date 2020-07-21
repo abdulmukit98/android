@@ -1,4 +1,18 @@
 //Button responce
+You create a notification using a notification
+builder. Each notification must include a small
+icon, a title, and some text as a bare minimum.
+ A heads-up notification has its priority set to
+high, and vibrates the device or plays a sound
+when it’s issued.
+ You tell the notification which activity to start
+when it’s clicked by creating a pending intent
+and adding it to the notification as an action.
+ You issue the notification using a notification
+manager. You create a notification manager
+using Android’s notification service.
+
+
 
 
     public static final int notificationId = 5453;  //random id
