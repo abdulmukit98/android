@@ -1,0 +1,4 @@
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_TEXT, (CharSequence) beerlist);
+        startActivity(new Intent().createChooser(intent, "Choose via"));
