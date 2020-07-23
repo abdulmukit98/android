@@ -1,0 +1,22 @@
+
+        <ToggleButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textOn="Stopwatch stop"
+            android:textOff="Stopwatch start"
+            android:onClick="onToggle"/>
+            
+            
+            
+            
+    public void onToggle(View view){
+        boolean on = ((ToggleButton)view).isChecked();
+        
+        if(on){
+            
+        }
+        else{
+            
+        }
+
+    }
