@@ -1,0 +1,5 @@
+StringBuilder builder = new StrringBuilder();
+
+builder.append("string abc").append("\n");
+
+textview.setText(builder)
