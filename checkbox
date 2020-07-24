@@ -1,0 +1,11 @@
+
+    public void onCheck(View view)
+    {
+        if ( ((CheckBox)view).isChecked() ){
+            switch (view.getId()){
+                case R.id.checkMilk:
+                    
+                case R.id.checkSugar:
+            }
+        }
+    }
