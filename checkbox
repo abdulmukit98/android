@@ -1,11 +1,13 @@
-
+List<String> list = new ArrayList<>();
     public void onCheck(View view)
     {
-        if ( ((CheckBox)view).isChecked() ){
-            switch (view.getId()){
-                case R.id.checkMilk:
-                    
-                case R.id.checkSugar:
-            }
+        boolean checked = ((CheckBox) view).isChecked();
+        switch (view.getId()){
+            case R.id.checkSugar:
+                if(checked) list.add("Sugar");
+                if (!checked) list.remove("Sugar");
+            break;
+            
         }
+
     }
