@@ -1,0 +1,31 @@
+add fragment to activity layout
+
+
+<fragment android:name="edu.cseju.kessendra.fragment.ListFragment"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/list_fragment"
+    />
+    
+
+
+on fragment class extend ListFragment
+
+
+in onCreateView  change return type to super
+initially it was 
+
+return inflater.inflate(R.layout.fragment_list, container, false);
+
+since we dont need layout for list fragment this inflate method conflict .   Thus change it to super.
+
+
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+
+        ArrayAdapter<BeerDatabase> adapter = new ArrayAdapter<>(inflater.getContext(), android.R.layout.simple_list_item_1, BeerDatabase.bears);
+        setListAdapter(adapter);
+
+        return super.onCreateView(inflater,container,savedInstanceState);
+    }
