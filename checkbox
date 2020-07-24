@@ -7,7 +7,24 @@ List<String> list = new ArrayList<>();
                 if(checked) list.add("Sugar");
                 if (!checked) list.remove("Sugar");
             break;
-            
+            case R.id.checkDessert:
+                if (checked) list.add("Dessert");
+                if (!checked) list.remove("Dessert");
+            break;
+            case R.id.checkHoney:
+                if (checked) list.add("Honey");
+                if (!checked) list.remove("Honey");
+            break;
+            case R.id.checkMilk:
+                if (checked) list.add("Milk");
+                if(!checked) list.add("Milk");
+            break;
         }
 
+        StringBuilder builder = new StringBuilder();
+        for (String i : list){
+            builder.append(i).append("\n");
+        }
+        TextView textView = findViewById(R.id.textview);
+        textView.setText(builder);
     }
