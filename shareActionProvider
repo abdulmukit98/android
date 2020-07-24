@@ -1,0 +1,23 @@
+in menu file
+
+
+    <item
+        android:id="@+id/share_action"
+        android:title="share"
+        app:actionProviderClass="androidx.appcompat.widget.ShareActionProvider"
+        app:showAsAction="ifRoom"/>
+        
+        
+in Activity
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+
+        MenuItem menuItem = menu.findItem(R.id.share_action);
+        ShareActionProvider shareActionProvider = (ShareActionProvider) MenuItemCompat.getActionProvider(menuItem);
+        shareActionProvider.setShareIntent(new Intent(Intent.ACTION_SEND).setType("text/plain").putExtra(Intent.EXTRA_TEXT, "Hello"));
+
+        return super.onCreateOptionsMenu(menu);
+    }
