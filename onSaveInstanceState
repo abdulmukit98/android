@@ -1,0 +1,29 @@
+dont use by default function as 
+
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState, @NonNull PersistableBundle outPersistentState) {
+        super.onSaveInstanceState(outState, outPersistentState);
+    }
+    
+    
+    remove the second parameter. otherwise it dont work
+    
+    
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt("time", time);
+        outState.putBoolean("running",running);
+        outState.putBoolean("wasRunning", wasRunning);
+
+    }
+
+
+then retrive data in onCreate method
+
+        if(savedInstanceState != null){
+            time = savedInstanceState.getInt("time");
+            running = savedInstanceState.getBoolean("running");
+            wasRunning = savedInstanceState.getBoolean("wasRunning");
+        }
