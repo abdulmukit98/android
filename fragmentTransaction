@@ -1,0 +1,7 @@
+
+        NewFragment newFragment = new NewFragment();
+        newFragment.setId(id);
+
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.frame_layout, newFragment);
+        fragmentTransaction.commit();
