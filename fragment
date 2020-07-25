@@ -1,12 +1,17 @@
 create blank fragment
 
-add it in activity layout as
+add a frame layout in activity activity layout as
 
 
-<fragment
-    xmlns:android = "http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/newFrag"
-    android:name="edu.cseju.kessendra.fragment.NewFragment"
-    />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/frame_layout"
+        />
+
+assign frame layout with fragment
+
+        NewFragment newFragment = new NewFragment();
+        newFragment.setId(5);
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.frame_layout, newFragment).commit();
