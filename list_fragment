@@ -51,7 +51,13 @@ return inflater.inflate(R.layout.fragment_list, container, false);
     public static interface Listener{
             void onItemClick(int id);
         }
-        private Listener listener;
+    private Listener listener;
+ 
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        newListener = (NewListener) context;
+    }       
 
 
  8) implements interface and method and its method in activity class
