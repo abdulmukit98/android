@@ -1,0 +1,31 @@
+1 add interface in fragment
+
+
+    public static interface NewListener{
+        void Check();
+    }
+    private NewListener newListener;
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        newListener = (NewListener) context;
+    }
+    
+    
+2 call the method in fragment when needed
+      newListener.Check();
+    
+    
+3 implement listener in activity
+
+public class ThirdActivity extends AppCompatActivity implements NewFragment.NewListener{
+
+
+4 implements method
+
+    @Override
+    public void Check() {
+        System.out.println("Hello World");
+    }
+
