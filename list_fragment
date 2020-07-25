@@ -29,3 +29,13 @@ since we dont need layout for list fragment this inflate method conflict .   Thu
 
         return super.onCreateView(inflater,container,savedInstanceState);
     }
+
+
+
+list onclick method in fragment
+
+
+    @Override
+    public void onListItemClick(@NonNull ListView l, @NonNull View v, int position, long id) {
+        super.onListItemClick(l, v, position, id);
+    }
