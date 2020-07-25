@@ -1,24 +1,28 @@
-add fragment to activity layout
+1) add fragment to activity layout dynamically
 
 
-<fragment android:name="edu.cseju.kessendra.fragment.ListFragment"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/list_fragment"
-    />
-    
+<FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/list_frag_container"/>
+
+2) assign it in oncreate method
+
+        ListFragment listFragment = new ListFragment();
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.list_frag_container, listFragment).commit();
 
 
-on fragment class extend ListFragment
+
+3) on fragment class extend ListFragment
 
 
-in onCreateView  change return type to super
+4) in listfragment's onCreateView method  change return type to super
 initially it was 
 
 return inflater.inflate(R.layout.fragment_list, container, false);
 
-since we dont need layout for list fragment this inflate method conflict .   Thus change it to super.
+5) since we dont need layout for list fragment this inflate method conflict .   Thus change it to super.
 
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -32,10 +36,25 @@ since we dont need layout for list fragment this inflate method conflict .   Thu
 
 
 
-list onclick method in fragment
+6) list onclick method in fragment
 
 
     @Override
     public void onListItemClick(@NonNull ListView l, @NonNull View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
     }
+   
+   
+7) make listfragment talk with activity create an interface
+
+
+    public static interface Listener{
+            void onItemClick(int id);
+        }
+        private Listener listener;
+
+
+ 8) implements interface and method and its method in activity class
+ 
+ public class ForthActivity extends AppCompatActivity implements ListFragment.Listener, NewFragment.NewListener {
+
