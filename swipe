@@ -1,4 +1,6 @@
-Add pager in layout.xml
+1) add (design) library dependency
+2) Add pager in layout.xml
+
 
     <androidx.viewpager.widget.ViewPager
         android:layout_width="match_parent"
