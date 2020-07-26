@@ -1,4 +1,4 @@
-        //include design library dependency first
+        //include (design) library dependency first
         
         // Create coordinator layout and give it  an idd . pass it to snackbar  findViewById()
         
