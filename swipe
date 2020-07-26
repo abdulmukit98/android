@@ -3,18 +3,17 @@ Add pager in layout.xml
     <androidx.viewpager.widget.ViewPager
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:id="@+id/pager"/>
         
  
  
  
- on Activity.java    create Fragment pager adapter class
+ 2) on Activity.java    create class that extends FragmentPagerAdapter 
  
  
-    private class SectionPagerAdapter extends FragmentPagerAdapter{
+    private class ABCD extends FragmentPagerAdapter{
 
-        public SectionPagerAdapter(FragmentManager fm) {
+        public ABCD(FragmentManager fm) {
             super(fm);
         }
 
@@ -44,7 +43,8 @@ Add pager in layout.xml
 
 
 
-on onCreate method 
-        SectionPagerAdapter adapter = new SectionPagerAdapter(getSupportFragmentManager());
+3) on onCreate method 
+   
         ViewPager viewPager = findViewById(R.id.pager);
-        viewPager.setAdapter(adapter);
+        ABCD abcd = new ABCD(getSupportFragmentManager());
+        viewPager.setAdapter(abcd);
