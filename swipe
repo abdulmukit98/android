@@ -1,9 +1,29 @@
 1) add (design) library dependency
-2) Add pager in layout.xml
+2) Add pager, tablayout, and toolbar in layout.xml
 
 
-    <androidx.viewpager.widget.ViewPager
+
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        >
+
+        <androidx.appcompat.widget.Toolbar                                          // create toolbar
+            android:layout_width="match_parent"                                     //set style theme NoActionbar
+            android:layout_height="wrap_content"
+            android:id="@+id/toolbar"/>
+
+        <com.google.android.material.tabs.TabLayout                                // create tab option
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tab_layout"/>
+
+    </com.google.android.material.appbar.AppBarLayout>
+    
+    
+    <androidx.viewpager.widget.ViewPager
+        android:layout_width="match_parent"                                     //create pager
         android:layout_height="match_parent"
         android:id="@+id/pager"/>
         
@@ -38,6 +58,16 @@
         public int getCount() {
             return 4; // number of page
         }
+        
+        @Override
+        public CharSequence getPageTitle(int position) {
+            switch (position){
+                case 0: return "Tab1";
+                case 1: return "Tab2";
+
+            }
+            return null;
+        }
 
     }
 
@@ -50,3 +80,11 @@
         ViewPager viewPager = findViewById(R.id.pager);
         ABCD abcd = new ABCD(getSupportFragmentManager());
         viewPager.setAdapter(abcd);
+        
+        TabLayout tabLayout = findViewById(R.id.tab_layout);
+        tabLayout.setupWithViewPager(viewPager);
+        
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        
