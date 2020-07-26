@@ -15,3 +15,28 @@
         });
         return view;
     }
+
+
+1) in this method we have to create listener for every button.  But the easy way is -
+2) implement onclicklistener interface in  fragment.
+
+
+public class StopwatchFragment extends Fragment implements View.OnClickListener{
+
+
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()) {
+            case R.id.start_button:
+            
+            break;
+            case R.id.stop_button:
+            
+            break;
+            
+            case R.id.reset_button:
+            
+            break;
+            }
+        }
+}
