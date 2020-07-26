@@ -1,7 +1,16 @@
+1) we must add fragment once and the first time activity is created
+ without this codition , this fragment is created every time the activity pause, destroy.
+ that mean it will refresh the data
 
-        NewFragment newFragment = new NewFragment();
-        newFragment.setId(id);
 
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.frame_layout, newFragment);
-        fragmentTransaction.commit();
+
+if (savedInstanceState == null){
+                NewFragment newFragment = new NewFragment();
+                newFragment.setId(id);
+
+                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.frame_layout, newFragment);
+                fragmentTransaction.commit();
+
+        }
+
