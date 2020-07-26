@@ -1,0 +1,24 @@
+1) in an fragment layout resource file,   add an FrameLayout
+  
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/dynamicFragment"/>
+
+
+2) in fragment , create oncreate method
+3) when saveInstanceState == null   add the fragment .  (for the first time only)
+
+  
+  
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        
+        if(savedInstanceState == null){
+            ListFragment listFragment = new ListFragment();
+            FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.dynamicFragment, listFragment).commit();
+        }
+        
+    }
