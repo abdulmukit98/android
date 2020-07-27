@@ -1,0 +1,50 @@
+1) if dual layout apply for a view
+
+layout
+layout-large
+
+2) if there is NoActionBar ,  custom toolbar must be implemented in both layout.
+
+3) in mobile mayout  (layout)
+
+      <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/frame_layout"
+        />
+
+4)  in tab layout   (layout-large)
+    
+        
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:id="@+id/frame_layout"
+        />
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:id="@+id/frame_layout2"
+        />
+
+
+3) in onCreate
+
+        if (savedInstanceState == null)
+        {
+            NewFragment newFragment = new NewFragment();
+            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.frame_layout, newFragment).commit();
+
+
+            //if its tablet view
+            View frame2 = findViewById(R.id.frame_layout2);
+            if(frame2 != null){
+                ListFragment listFragment = new ListFragment();
+                FragmentTransaction fragmentTransaction1 = getSupportFragmentManager().beginTransaction();
+                fragmentTransaction1.replace(R.id.frame_layout2, listFragment).commit();
+            }
+        }
