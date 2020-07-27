@@ -1,9 +1,12 @@
-select the activity parent activity in mainfest
+1) select the activity parent activity in mainfest
 
-android:parentActivityName=".MainActivity"
+        android:parentActivityName=".MainActivity"
 
 
-in activity onCreate method
+2) in activity onCreate method
 //implement up button  <-
+   
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
+
+3) if action bar set to NoActionBar,  you must implement custom toolbar ,  otherwise back button crash.
