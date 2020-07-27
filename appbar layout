@@ -1,0 +1,8 @@
+1) AppBarLayout  may contain
+      * custom toolbar 
+      * tab-layout   (view pager title)
+      
+      
+2) appbar layout must orientted vertically in its parent layout.
+
+3)  menu item and actionbar also lived in toolbar.
