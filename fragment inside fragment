@@ -22,3 +22,6 @@
         }
         
     }
+
+
+4) use getChildFragmentManager for transaction
