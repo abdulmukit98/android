@@ -1,1 +1,31 @@
 1) Add the CardView and RecyclerView Support Libraries
+
+2) Card view layour resource file
+
+      <?xml version="1.0" encoding="utf-8"?>
+      <androidx.cardview.widget.CardView
+          xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:card_view="http://schemas.android.com/apk/res-auto"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:id="@+id/card_view"
+          >
+          <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+              <ImageView
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:id="@+id/info_image"
+                  />
+              <TextView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:id="@+id/info_text"
+                  />
+
+          </LinearLayout>
+
+      </androidx.cardview.widget.CardView>
