@@ -1,10 +1,29 @@
-1)   
+*) Activity layout
+        
+
+      <android.support.design.widget.CoordinatorLayout
+      ... >
+      <android.support.design.widget.AppBarLayout
+      ... >
+      <android.support.v7.widget.Toolbar
+      ... />
+      </android.support.design.widget.AppBarLayout>
+      <android.support.v4.widget.NestedScrollView
+      ...>
+      ...
+      </android.support.v4.widget.NestedScrollView>
+      </android.support.design.widget.CoordinatorLayout>
+      
+      
+
+
+1) Toolbar attribute
 
         <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/toolbar"
-            app:layout_scrollFlags="scroll"/>     ****************
+            app:layout_scrollFlags="scroll|enterAlways"/>     ****************
             
 2)
 
@@ -14,17 +33,16 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior"    **************
         android:id="@+id/pager"/>
 
-3)
 
-    Coordinator layout in activity
-    
-4)   
+4)   Nested scroll view attribute
 
       NestedScrollView   in  fragment                  (outside linear layout)
+        
+        
         
     <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:fillViewport="true"                                  //for full listview                                                                               
-    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+    android:fillViewport="true"                                  ***********************                                                                            
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">       *****************
