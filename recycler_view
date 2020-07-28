@@ -1,6 +1,6 @@
 1) Add the CardView and RecyclerView Support Libraries
 
-2) Card view layour resource file
+2) Card view layour resource file               (layout=card_view)
 
       <?xml version="1.0" encoding="utf-8"?>
       <androidx.cardview.widget.CardView
@@ -29,3 +29,57 @@
           </LinearLayout>
 
       </androidx.cardview.widget.CardView>
+
+
+
+
+
+
+3) card view adapter class          (class = CardViewAdapter)
+
+
+      
+      public class CardViewAdaptar extends RecyclerView.Adapter<CardViewAdaptar.ViewHolder> {
+
+          private String[] captions;
+          private int[] imageId;
+
+          public CardViewAdaptar(String[] captions, int[] imageId) {
+              this.captions = captions;
+              this.imageId = imageId;
+          }
+
+          @NonNull
+          @Override
+          public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
+              CardView cardView = (CardView) LayoutInflater.from(parent.getContext()).inflate(R.layout.card_view, parent, false);
+              return new ViewHolder(cardView);
+          }
+
+          @Override
+          public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+
+              CardView cardView = holder.cardView;
+              ImageView  imageView = cardView.findViewById(R.id.info_image);
+              TextView textView = cardView.findViewById(R.id.info_text);
+              imageView.setImageResource(imageId[position]);
+              textView.setText(captions[position]);
+          }
+
+          @Override
+          public int getItemCount() {
+              return captions.length;
+          }
+
+          public class ViewHolder extends RecyclerView.ViewHolder {
+
+              private CardView cardView;
+
+              public ViewHolder(@NonNull View itemView) {
+                  super(itemView);
+                  cardView = (CardView) itemView;
+              }
+          }
+
+      }
