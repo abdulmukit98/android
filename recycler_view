@@ -3,43 +3,43 @@
 2) Card view layour resource file               (layout=card_view)
 
       <?xml version="1.0" encoding="utf-8"?>
-      
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="200dp"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/card_view"
-    android:layout_margin="5dp"
-    card_view:cardElevation="2dp"
-    card_view:cardCornerRadius="10dp"
-    >
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/colorPrimary"
-        android:padding="6dp"
-        android:orientation="vertical">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="4dp"
-            android:layout_marginBottom="4dp"
-            android:id="@+id/info_text"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            />
+      <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:card_view="http://schemas.android.com/apk/res-auto"
+          android:layout_width="match_parent"
+          android:layout_height="200dp"
+          xmlns:app="http://schemas.android.com/apk/res-auto"
+          android:id="@+id/card_view"
+          android:layout_margin="5dp"
+          card_view:cardElevation="2dp"
+          card_view:cardCornerRadius="10dp"
+          >
+          <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/colorPrimary"
+              android:padding="6dp"
+              android:orientation="vertical">
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/info_image"
-            android:scaleType="centerCrop"
-            />
+              <TextView
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_marginLeft="4dp"
+                  android:layout_marginBottom="4dp"
+                  android:id="@+id/info_text"
+                  android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                  />
 
-    </LinearLayout>
+              <ImageView
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:id="@+id/info_image"
+                  android:scaleType="centerCrop"
+                  />
 
-</androidx.cardview.widget.CardView>
+          </LinearLayout>
+
+      </androidx.cardview.widget.CardView>
 
 
 
@@ -93,3 +93,47 @@
           }
 
       }
+
+
+
+4) Fragment layout contain single recycler view
+
+    
+    <androidx.recyclerview.widget.RecyclerView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        />
+
+
+
+5) in fragment onCreateView
+
+
+      public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                                   Bundle savedInstanceState) {
+
+              View view =  inflater.inflate(R.layout.fragment_two, container, false);
+
+              RecyclerView recyclerView = (RecyclerView) view;
+              String[] beerName = new String[BeerDatabase.bears.length];
+              int[] beerImage = new int[BeerDatabase.bears.length];
+
+              for (int i = 0; i < BeerDatabase.bears.length; i++)
+              {
+                  beerName[i] = BeerDatabase.bears[i].getBeerName();
+                  beerImage[i] = BeerDatabase.bears[i].getImageId();
+              }
+
+              CardViewAdaptar cardViewAdaptar = new CardViewAdaptar(beerName, beerImage);
+              recyclerView.setAdapter(cardViewAdaptar);
+              
+              GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 3);
+              LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+
+              recyclerView.setLayoutManager(gridLayoutManager);
+
+              // Inflate the layout for this fragment
+              return view;
+          }
