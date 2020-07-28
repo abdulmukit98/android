@@ -3,33 +3,43 @@
 2) Card view layour resource file               (layout=card_view)
 
       <?xml version="1.0" encoding="utf-8"?>
-      <androidx.cardview.widget.CardView
-          xmlns:android="http://schemas.android.com/apk/res/android"
-          xmlns:card_view="http://schemas.android.com/apk/res-auto"
-          android:layout_width="match_parent"
-          android:layout_height="match_parent"
-          android:id="@+id/card_view"
-          >
-          <LinearLayout
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:orientation="vertical">
+      
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_view"
+    android:layout_margin="5dp"
+    card_view:cardElevation="2dp"
+    card_view:cardCornerRadius="10dp"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary"
+        android:padding="6dp"
+        android:orientation="vertical">
 
-              <ImageView
-                  android:layout_width="match_parent"
-                  android:layout_height="match_parent"
-                  android:id="@+id/info_image"
-                  />
-              <TextView
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:id="@+id/info_text"
-                  />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:layout_marginBottom="4dp"
+            android:id="@+id/info_text"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            />
 
-          </LinearLayout>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/info_image"
+            android:scaleType="centerCrop"
+            />
 
-      </androidx.cardview.widget.CardView>
+    </LinearLayout>
 
+</androidx.cardview.widget.CardView>
 
 
 
