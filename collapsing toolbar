@@ -35,8 +35,6 @@
     android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" >
     
     
-*) collapsing toolbar wont work if there is view_pager's tab_layout
-    
     
 3) Collapsing toolbar layout attributes
 
@@ -54,3 +52,8 @@
       android:layout_width="match_parent"
       android:layout_height="?attr/actionBarSize"    **************
       app:layout_collapseMode="pin" />          ****************
+
+
+
+*) collapsing toolbar wont work if there is view_pager's tab_layout
+    
