@@ -1,6 +1,8 @@
-        //include (design) library dependency first
+1) include (design) library dependency first
         
-        // Create coordinator layout and give it  an idd . pass it to snackbar  findViewById()
+2) Create coordinator layout and give it  an id 
+3) pass layout_id to snackbar  findViewById()
+        
         
         String s = "Your Order has been updated";
         int duration = Snackbar.LENGTH_SHORT;
