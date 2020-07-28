@@ -58,6 +58,21 @@
               this.captions = captions;
               this.imageId = imageId;
           }
+          
+        public CardViewAdaptar(String[] captions, int[] imageId) {
+              this.captions = captions;
+              this.imageId = imageId;
+          }
+
+          public interface ABCDListener{
+              void Check(int position);
+          }
+          private ABCDListener abcdListener;
+
+          public void setAbcdListener(ABCDListener abcdListener) {
+              this.abcdListener = abcdListener;
+          }
+
 
           @NonNull
           @Override
@@ -75,6 +90,14 @@
               TextView textView = cardView.findViewById(R.id.info_text);
               imageView.setImageResource(imageId[position]);
               textView.setText(captions[position]);
+              
+              cardView.setOnClickListener(new View.OnClickListener() {
+                  @Override
+                  public void onClick(View v) {
+                      abcdListener.Check(position);
+                  }
+              });
+
           }
 
           @Override
@@ -133,6 +156,17 @@
               LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
 
               recyclerView.setLayoutManager(gridLayoutManager);
+              
+
+              cardViewAdaptar.setAbcdListener(new CardViewAdaptar.ABCDListener() {
+                  @Override
+                  public void Check(int position) {
+                      Intent intent = new Intent(getActivity(), ForthActivity.class);
+                      intent.putExtra(Intent.EXTRA_TEXT, position);
+                      startActivity(intent);
+                  }
+              });
+
 
               // Inflate the layout for this fragment
               return view;
