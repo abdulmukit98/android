@@ -1,4 +1,7 @@
    add materal library dependency
+   add design library dependency
+   
+   FAB must be inside coordinator layout
    
    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"
