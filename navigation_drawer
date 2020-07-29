@@ -1,0 +1,63 @@
+1) Header  nav_header.xml
+
+      <?xml version="1.0" encoding="utf-8"?>
+      <LinearLayout
+          xmlns:android="http://schemas.android.com/apk/res/android" 
+          android:layout_width="match_parent"
+          android:layout_height="200dp"
+          android:orientation="vertical">
+
+          <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:textAppearance="@style/TextAppearance.AppCompat.Large"
+              android:text="Hello World"
+              android:layout_gravity="center_horizontal"
+              />
+
+          <ImageView
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:src="@drawable/female"/>
+
+      </LinearLayout>
+
+
+
+
+2) Options   menu (menu_nav)
+
+
+        <menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+            <group android:checkableBehavior="single">
+                <item android:id="@+id/inbox"
+                    android:icon="@android:drawable/sym_action_email"
+                    android:title="Inbox"/>
+                <item android:id="@+id/draft"
+                    android:icon="@android:drawable/ic_menu_add"
+                    android:title="Drafts"/>
+                <item android:id="@+id/sent"
+                    android:icon="@android:drawable/sym_call_outgoing"
+                    android:title="Send"/>
+                <item android:id="@+id/delete"
+                    android:icon="@android:drawable/ic_delete"
+                    android:title="Delete"/>
+            </group>
+
+            <item android:title="Sub-menu">
+                <menu>
+                    <item android:id="@+id/help"
+                        android:icon="@android:drawable/ic_menu_help"
+                        android:title="Help"/>
+                    <item android:id="@+id/feedback"
+                        android:icon="@android:drawable/sym_action_chat"
+                        android:title="Feedback"/>
+                </menu>
+            </item>
+
+        </menu>
+        
+        
+        
+        
