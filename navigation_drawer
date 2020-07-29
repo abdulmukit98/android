@@ -111,3 +111,110 @@
               android:id="@+id/nav_view"
               />
       </androidx.drawerlayout.widget.DrawerLayout>
+      
+      
+      
+4) String Resource
+
+    <string name="nav_open_drawer">Open</string>
+    <string name="nav_close_drawer">Close</string>
+    
+    
+    
+    
+5) Activity Code
+      *implenent   NavigationView.OnNavigationItemSelectedListener
+
+
+
+      public class FifthActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+
+          @Override
+          protected void onCreate(Bundle savedInstanceState) {
+              super.onCreate(savedInstanceState);
+              setContentView(R.layout.activity_fifth);
+
+              Toolbar toolbar = findViewById(R.id.toolbar);
+              setSupportActionBar(toolbar);
+
+              //initially onefragment
+              Fragment fragment = new OneFragment();
+              FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+              fragmentTransaction.replace(R.id.frame_layout, fragment).commit();
+
+
+            //create icon for drawer
+              DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
+              ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this,
+                                                                                      drawerLayout,
+                                                                                      toolbar,
+                                                                                      R.string.nav_open_drawer,
+                                                                                      R.string.nav_close_drawer);
+              drawerLayout.addDrawerListener(actionBarDrawerToggle);
+              actionBarDrawerToggle.syncState();
+
+              NavigationView navigationView = findViewById(R.id.nav_view);
+              navigationView.setNavigationItemSelectedListener(this);
+          }
+
+          @Override
+          public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+              Fragment fragment = null;
+              Intent intent = null;
+
+              switch (item.getItemId()){
+
+                  case R.id.nav_inbox:
+                      fragment = new OneFragment();
+                  break;
+                  case R.id.nav_draft:
+                      fragment = new TwoFragment();
+                  break;
+                  case R.id.nav_sent:
+                      fragment = new ListFragment();
+                  break;
+                  case R.id.nav_delete:
+                      fragment = new NewFragment();
+                  break;
+
+                  case R.id.nav_feedback:
+                      intent = new Intent(this, SecondActivity.class);
+                  break;
+                  case R.id.nav_help:
+                      intent = new Intent(this, ThirdActivity.class);
+                  break;
+              }
+
+              if (fragment != null)
+              {
+                  FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                  fragmentTransaction.replace(R.id.frame_layout, fragment).commit();
+              }
+              if (intent != null)
+              {
+                  startActivity(intent);
+              }
+            
+            //close drawet immediately after click
+              DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
+              drawerLayout.closeDrawer(GravityCompat.START);
+              return true;
+          }
+
+
+          @Override
+          public void onBackPressed() {
+            //close drawer if back button pressed
+              DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
+              if (drawerLayout.isDrawerOpen(Gravity.START)) {
+                  drawerLayout.closeDrawer(Gravity.START);
+              }
+              else {
+                  super.onBackPressed();
+              }
+          }
+          
+          
+          
+      }
