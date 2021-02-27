@@ -1,7 +1,22 @@
 # android
 
-## toast
+### toast
 	
 	Toast.makeText(	getApplicationContext(),
-					"Hello Batch 27",
+					"message",
 					Toast.LENGTH_LONG).show();
+
+
+### Button clickable	
+	
+        btns.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                
+            }
+        });
+
+### EditText
+
+	edtN.getText().toString()
+	
