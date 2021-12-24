@@ -32,4 +32,14 @@
 	      
 	        android:layout_gravity="center"
 
+### Recyclar View
 
+		1 
+		recyclar view adapter
+		interact with the recycler view
+		
+		2
+		recyclar view viewholder
+		access each item of recyclar view
+		
+		
