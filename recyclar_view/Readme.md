@@ -89,3 +89,20 @@
             }
         }
 
+
+
+### Recyclar_view_holder
+
+        public class RecyclarViewHolder extends RecyclerView.ViewHolder {
+
+            TextView textView;
+
+            public RecyclarViewHolder(@NonNull View itemView) {
+                super(itemView);
+
+                textView = itemView.findViewById(R.id.riTvName);
+
+            }
+
+
+        }
