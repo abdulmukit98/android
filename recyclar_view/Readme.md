@@ -106,3 +106,18 @@
 
 
         }
+        
+        
+### Main_activity
+
+        recyclerView = findViewById(R.id.recyclar);
+
+                List<Data> list = new ArrayList<Data>();
+                list.add(new Data("Anis"));
+                list.add(new Data("Kate"));
+                list.add(new Data("Perl"));
+                list.add(new Data("Java"));
+
+                RecycarAdaptar recycarAdaptar = new RecycarAdaptar(list, getApplicationContext());      // constructor
+                recyclerView.setAdapter(recycarAdaptar);
+
