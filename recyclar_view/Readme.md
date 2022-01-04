@@ -50,3 +50,42 @@
                         '}';
             }
         }
+        
+
+### Recyclar_adaptar
+
+        public class RecycarAdaptar extends RecyclerView.Adapter<RecyclarViewHolder> {
+
+            List<Data> list;
+            Context context;
+
+            public RecycarAdaptar(List<Data> list, Context context) {
+                this.list = list;
+                this.context = context;
+            }
+
+            @NonNull
+            @Override
+            public RecyclarViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
+                LayoutInflater layoutInflater = LayoutInflater.from(context);
+                View view = layoutInflater.inflate(R.layout.recyclar_item, parent, false);
+
+                RecyclarViewHolder recyclarViewHolder = new RecyclarViewHolder(view);
+
+                return recyclarViewHolder;
+            }
+
+            @Override
+            public void onBindViewHolder(@NonNull RecyclarViewHolder holder, int position) {
+
+                holder.textView.setText(list.get(position).getString());
+
+            }
+
+            @Override
+            public int getItemCount() {
+                return list.size();
+            }
+        }
+
