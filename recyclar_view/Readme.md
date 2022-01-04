@@ -20,3 +20,33 @@
         android:textSize="30sp" 
         
         />
+
+### model
+
+
+        public class Data {
+            private String string;
+
+            public Data(String string) {
+                this.string = string;
+            }
+            public Data()
+            {
+
+            }
+
+            public String getString() {
+                return string;
+            }
+
+            public void setString(String string) {
+                this.string = string;
+            }
+
+            @Override
+            public String toString() {
+                return "Data{" +
+                        "string='" + string + '\'' +
+                        '}';
+            }
+        }
