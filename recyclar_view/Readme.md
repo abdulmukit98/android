@@ -11,3 +11,12 @@
         
 ### recyclar_item
 
+    <TextView
+        android:id="@+id/riTvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Hello"
+        android:textSize="30sp" 
+        
+        />
