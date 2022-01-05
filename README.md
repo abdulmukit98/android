@@ -56,9 +56,8 @@
     <ProgressBar
         android:id="@+id/mProgress"
         style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-        android:layout_width="382dp"
-        android:layout_height="16dp"
-        android:indeterminate="true"
+
+        **android:indeterminate="true"**
         android:indeterminateTint="@color/black"
         
 	/>
