@@ -43,3 +43,9 @@
 		access each item of recyclar view
 		
 		
+### Picasso
+
+	implementation 'com.squareup.picasso:picasso:2.71828'
+
+	manifest
+	    <uses-permission android:name="android.permission.INTERNET" />
