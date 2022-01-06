@@ -103,7 +103,8 @@
                 textView = itemView.findViewById(R.id.riTvName);
 
             }
-
+        
+        //getAdaptarPosition()
 
         }
         
