@@ -1,7 +1,7 @@
 * Create class that extend thread
 
 ```
-class NThread
+class NThread extends Thread
 {
     NThread()
     {
