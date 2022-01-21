@@ -21,18 +21,17 @@ class NThread extends Thread
 }
 ```
 
-* call thread 
+### call thread 
 
 ```
 NThread nthread = new NThread();
 nthread.start();
 ```
 
-* To access main activity content throuth background thread
-    * call a handler with **Looper.getMainLooper()**
+### Access main activity content throuth background thread
 
+* call a handler with **Looper.getMainLooper()**
 ```
-
     new Handler(Looper.getMainLooper()).post(new Runnable() {
         @Override
         public void run() {
