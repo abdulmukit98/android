@@ -1,4 +1,4 @@
-* Create class that extend thread
+### Create class that extend thread
 
 ```
 class NThread extends Thread
