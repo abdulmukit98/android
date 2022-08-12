@@ -1,3 +1,10 @@
+```
+res -->  Android Resource Directory --> menu folder
+menu --> Menu Resource file
+
+```
+
+
 ### xml
 
       <?xml version="1.0" encoding="utf-8"?>
