@@ -45,11 +45,20 @@
 		
 ### Picasso
 
+```
+
 	implementation 'com.squareup.picasso:picasso:2.71828'
 
 	manifest
 	    <uses-permission android:name="android.permission.INTERNET" />
-	    
+
+
+	Picasso.get().load(imageUri).into(imageView);
+	or
+	imageView.setImageUri(imageUri)
+
+```
+
 ### progress bar
 
 
